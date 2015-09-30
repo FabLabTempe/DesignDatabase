@@ -1,0 +1,21 @@
+Data Extraction:
+Understanding the primary task of feature extraction while making useful interpretations of the dataset is key. To analyze the quality of the data set we need to set clear understanding of the output label. This in turn leads to doing a ground research on the features in the dataset that are co-related in contrast to those that are not. Subsequently, the degree of contribution in our feature space when paralleled with other dimensions plays a significant role. This can be understood using Fisher's information. Fisher's information provides the amount of information a feature has toward the prediction of the output label. Following which, we study the dataset for its credibility to undergo dimensionality reduction to extract visual understanding of the output.
+
+In this research we test the hypothesis of predicting forest fires using meteorological data(interchangeably used with Climate Data). In lieu of the same, we based our study using Cortez & Morais's paper. We tested our models on 2 datasets.
+
+Primarily, we obtain the first dataset from the UCI repository. With 517 samples, it contains features from the Fire Weather Index such as FFMC, DMC etc which serve as major contributing factors as derived from Fisher's information for predicting forest fires.
+
+Secondly, we extended our study to a feature extracted sets of data which could be fused with substantial ground truth. This is validated through the online metadata for US climate data and Monitoring Trends in Burnt Severity(MTBS). This methodology is explained in the next section.
+
+
+Data Fusion:
+In the Geospatial domain, we obtain localized points which on daily cycle records meteorological data. Additionally, the MTBS department also records the occurence of forest fires. Our focus is concentrated within the United States.
+
+Introducing the python library called 'Beautiful Soup', we wrote a python script that extracts data over a span of 10 years from 2004-2014. This is then fused with metadata as mentioned above. This feature extracted data, maps the occurence of a forest fire on a particular day with its respective climate data. This provides features such as Precipitation, Temperature, Burnt Area, Lattitude, Longitude of fire occurence.
+
+If there is a date match with an occurence of a fire, the dataset is amalgamated with its respective forest fire affiliated data. It is marked with a zero else. This results in a wide seperation between burnt severities. This also is based on the concept of Boosting. Which magnifies the confidence of prediction.
+
+While both datasets provide a binary label which allows us to predict if a forest fire occured on a particular date given the meteorological data, the fused data also provides us with the liability to predict the severity of the fire. This engages the rescue team and improves the response time by planning with the necessary gear and utilities and many such advantages.
+
+Data Pre-processing/Cleaning:
+Data-gathering methods are often loosely controlled, resulting in out-of-range values, impossible data combinations, missing values, redundant information, noisy and unreliable data. Once we have this information, majority of a machine learning application would reach completion. While we have a huge dataset(21k samples) with a small dimensionality, we need to account for false positives. This occurs because the dataset during extraction, parses data at (0,0) lattitude and longitude when there is no fire data against that date. This thus needs to be cleaned up to or omitted to analyze in certain models. The process of cleaning the data before being sent to train a model is known as Data Pre-processing.
