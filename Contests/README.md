@@ -1,2 +1,2 @@
-# DesignDatabase
-We Are here to Stay!
+# Contests
+Various teams representing FLT have participated in these following contests.
